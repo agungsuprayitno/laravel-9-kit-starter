@@ -2,12 +2,11 @@
 
 namespace App\Providers;
 
-use App\Menu\Models\MenusModel;
-use App\Observers\MenuObserver;
+use App\Observers\ProductObserver;
+use App\Products\Models\Product;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
-use Illuminate\Support\Facades\Event;
 
 class EventServiceProvider extends ServiceProvider
 {
@@ -29,6 +28,6 @@ class EventServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        MenusModel::observe(MenuObserver::class);
+        Product::observe(ProductObserver::class);
     }
 }
